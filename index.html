@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Z Rugs — AI Powered Rug Cleaning</title>  <!-- Google Font -->  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #020617;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo { font-size: 1.25rem; font-weight: 700; color: #38bdf8; }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: #38bdf8; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: #e5e7eb;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(to bottom, rgba(2,6,23,0.85), #020617),
+        url('https://images.unsplash.com/photo-1581579185169-1c6f33f40f6d') center/cover;
+      padding: 120px 20px 100px;
+      text-align: center;
+    }
+
+    .hero h1 { font-size: 3rem; color: #38bdf8; margin-bottom: 16px; }
+    .hero p { max-width: 720px; margin: auto; color: #cbd5f5; }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary { background: #38bdf8; color: #020617; }
+    .btn-primary:hover { background: #0ea5e9; }
+
+    .btn-outline {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-outline:hover { background: #38bdf8; color: #020617; }
+
+    /* AI BADGE */
+    .ai-badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 14px;
+      background: rgba(56,189,248,0.15);
+      border: 1px solid #38bdf8;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #38bdf8;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 20px; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title { font-size: 2rem; margin-bottom: 10px; }
+    .section-sub { color: #94a3b8; margin-bottom: 40px; }
+
+    /* SERVICES */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #020617;
+      border: 1px solid #0f172a;
+      padding: 28px;
+      border-radius: 16px;
+    }
+
+    .card h3 { color: #38bdf8; margin-bottom: 10px; }
+    .card p { color: #94a3b8; }
+
+    /* AI CHAT */
+    .ai-chat {
+      margin-top: 40px;
+      border: 1px solid #0f172a;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .ai-header {
+      background: #020617;
+      padding: 14px 18px;
+      border-bottom: 1px solid #0f172a;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .ai-messages {
+      padding: 18px;
+      max-height: 260px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+
+    .ai-msg { margin-bottom: 12px; }
+    .ai-user { color: #e5e7eb; }
+    .ai-bot { color: #38bdf8; }
+
+    .ai-input {
+      display: flex;
+      border-top: 1px solid #0f172a;
+    }
+
+    .ai-input input {
+      flex: 1;
+      padding: 14px;
+      background: #020617;
+      border: none;
+      color: #e5e7eb;
+    }
+
+    .ai-input button {
+      background: #38bdf8;
+      color: #020617;
+      border: none;
+      padding: 0 22px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* CONTACT */
+    form { display: grid; gap: 14px; }
+
+    input, textarea {
+      padding: 14px;
+      background: #020617;
+      border: 1px solid #0f172a;
+      border-radius: 10px;
+      color: #e5e7eb;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+      border-top: 1px solid #0f172a;
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .nav.active .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #020617;
+        border: 1px solid #0f172a;
+        padding: 20px;
+        border-radius: 14px;
+      }
+
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style></head>
+<body><header>
+  <div class="nav" id="nav">
+    <div class="logo">A‑Z Rugs</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#ai">AI Assistant</a>
+      <a href="#contact">Book</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header><section class="hero">
+  <h1>AI‑Powered Rug Cleaning</h1>
+  <p>Our smart assistant helps you choose the right cleaning, estimate price, and book instantly.</p>
+  <span class="ai-badge">🤖 AI Smart Assistant Enabled</span>  <div class="hero-buttons">
+    <a href="#ai" class="btn btn-primary">Ask Our AI</a>
+    <a href="https://wa.me/2349031830593" class="btn btn-outline">WhatsApp</a>
+  </div>
+</section><section id="services">
+  <div class="container">
+    <h2 class="section-title">Smart Services</h2>
+    <p class="section-sub">AI‑recommended cleaning solutions</p><div class="grid-3">
+  <div class="card"><h3>Deep Rug Wash</h3><p>AI detects fabric sensitivity and dirt level.</p></div>
+  <div class="card"><h3>Stain Diagnosis</h3><p>Describe stains and get treatment advice.</p></div>
+  <div class="card"><h3>Pickup Optimizer</h3><p>Smart scheduling for faster delivery.</p></div>
+</div>
+
+  </div>
+</section><section id="ai">
+  <div class="container">
+    <h2 class="section-title">AI Rug Assistant</h2>
+    <p class="section-sub">Ask about prices, stains, delivery, or rug care</p><div class="ai-chat">
+  <div class="ai-header">A‑Z Rugs AI</div>
+  <div class="ai-messages" id="chat">
+    <div class="ai-msg ai-bot">Hi 👋 Tell me your rug size, type, or stain problem.</div>
+  </div>
+  <div class="ai-input">
+    <input id="userInput" placeholder="Type your question…" />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+  </div>
+</section><section id="contact">
+  <div class="container">
+    <h2 class="section-title">AI‑Assisted Booking</h2>
+    <form onsubmit="event.preventDefault(); alert('Booking sent! Our AI will confirm via WhatsApp.');">
+      <input placeholder="Full Name" required>
+      <input placeholder="Phone Number" required>
+      <input placeholder="Pickup Address" required>
+      <textarea placeholder="Rug size, type, stains"></textarea>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</section><footer>© 2025 A‑Z Rugs. AI‑Powered Cleaning.</footer><script>
+  function toggleMenu() {
+    document.getElementById('nav').classList.toggle('active');
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('userInput');
+    const chat = document.getElementById('chat');
+    if (!input.value.trim()) return;
+
+    chat.innerHTML += `<div class="ai-msg ai-user">${input.value}</div>`;
+
+    setTimeout(() => {
+      chat.innerHTML += `<div class="ai-msg ai-bot">Based on your description, deep washing with stain treatment is recommended. Pickup is available within 24hrs.</div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }, 600);
+
+    input.value = '';
+  }
+</script></body>
+</html>
